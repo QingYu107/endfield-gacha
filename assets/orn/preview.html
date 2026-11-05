@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>orn / QA</title>
+<style>
+  :root{ --bg:#0a0c0e; --lime:#ffef5a; --dim:#5b646e; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; background:var(--bg); color:#eef1f3;
+    font:12px/1.4 "Cascadia Mono",Consolas,ui-monospace,monospace; }
+  body{ padding:12px 16px 14px; }
+  header{ display:flex; align-items:baseline; gap:12px; padding-bottom:8px;
+    border-bottom:1px solid #1b2228; margin-bottom:10px; }
+  h1{ font-size:12px; letter-spacing:.16em; margin:0; color:#ffef5a; font-weight:600; }
+  header span{ color:var(--dim); font-size:10px; letter-spacing:.08em; margin-left:auto; }
+  .grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  .card{ margin:0; border:1px solid #1b2228; background:#0d1013; padding:6px; }
+  .stack{ display:grid; grid-template-columns:1fr 1fr; gap:4px; justify-items:center; align-content:start; }
+  .cell{ display:grid; place-items:center; width:100%; }
+  .s48{ height:48px; } .s96{ height:96px; }
+  .dark{ background:#0a0c0e; border:1px solid #1f272e; color:#ffef5a; }
+  .lime{ background:#ffef5a; color:#0a0c0e; }
+  figcaption{ margin-top:5px; color:#828a93; font-size:9.5px; letter-spacing:.03em;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .foot{ margin-top:10px; padding-top:8px; border-top:1px solid #1b2228; }
+  .foot h2{ font-size:9.5px; letter-spacing:.14em; color:var(--dim); margin:0 0 6px; font-weight:600; }
+  .row{ display:flex; gap:16px; align-items:flex-end; }
+  .minis{ display:flex; gap:3px; background:#0a0c0e; border:1px solid #1f272e; padding:3px; color:#ffef5a; }
+  .mini{ width:24px; height:24px; display:grid; place-items:center; }
+  .mini svg{ max-width:24px; max-height:24px; }
+  .native{ border:1px solid #1f272e; padding:3px; background:#0a0c0e; color:#ffef5a; }
+  .lbl{ color:#5b646e; font-size:9px; margin-top:4px; letter-spacing:.06em; }
+  .rep{ height:112px; background-color:#6f7880; background-repeat:repeat; border:1px solid #2a323a; }
+</style></head><body>
+<header><h1>ORNAMENT QA</h1><span>48 / 96 &nbsp;|&nbsp; #0a0c0e / #ffef5a &nbsp;|&nbsp; 13 pieces</span></header>
+<main class="grid"><figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V3.5H24" stroke-width="3"/><path d="M10.5 18.5V10.5H18.5" stroke-width="1.5"/><path d="M18.5 14.7L22.3 18.5L18.5 22.3L14.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V3.5H24" stroke-width="3"/><path d="M10.5 18.5V10.5H18.5" stroke-width="1.5"/><path d="M18.5 14.7L22.3 18.5L18.5 22.3L14.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V3.5H24" stroke-width="3"/><path d="M10.5 18.5V10.5H18.5" stroke-width="1.5"/><path d="M18.5 14.7L22.3 18.5L18.5 22.3L14.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V3.5H24" stroke-width="3"/><path d="M10.5 18.5V10.5H18.5" stroke-width="1.5"/><path d="M18.5 14.7L22.3 18.5L18.5 22.3L14.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>corner-tl.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V3.5H24" stroke-width="3"/><path d="M37.5 18.5V10.5H29.5" stroke-width="1.5"/><path d="M29.5 14.7L33.3 18.5L29.5 22.3L25.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V3.5H24" stroke-width="3"/><path d="M37.5 18.5V10.5H29.5" stroke-width="1.5"/><path d="M29.5 14.7L33.3 18.5L29.5 22.3L25.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V3.5H24" stroke-width="3"/><path d="M37.5 18.5V10.5H29.5" stroke-width="1.5"/><path d="M29.5 14.7L33.3 18.5L29.5 22.3L25.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V3.5H24" stroke-width="3"/><path d="M37.5 18.5V10.5H29.5" stroke-width="1.5"/><path d="M29.5 14.7L33.3 18.5L29.5 22.3L25.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>corner-tr.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V44.5H24" stroke-width="3"/><path d="M10.5 29.5V37.5H18.5" stroke-width="1.5"/><path d="M18.5 25.7L22.3 29.5L18.5 33.3L14.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V44.5H24" stroke-width="3"/><path d="M10.5 29.5V37.5H18.5" stroke-width="1.5"/><path d="M18.5 25.7L22.3 29.5L18.5 33.3L14.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V44.5H24" stroke-width="3"/><path d="M10.5 29.5V37.5H18.5" stroke-width="1.5"/><path d="M18.5 25.7L22.3 29.5L18.5 33.3L14.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V44.5H24" stroke-width="3"/><path d="M10.5 29.5V37.5H18.5" stroke-width="1.5"/><path d="M18.5 25.7L22.3 29.5L18.5 33.3L14.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>corner-bl.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V44.5H24" stroke-width="3"/><path d="M37.5 29.5V37.5H29.5" stroke-width="1.5"/><path d="M29.5 25.7L33.3 29.5L29.5 33.3L25.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V44.5H24" stroke-width="3"/><path d="M37.5 29.5V37.5H29.5" stroke-width="1.5"/><path d="M29.5 25.7L33.3 29.5L29.5 33.3L25.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V44.5H24" stroke-width="3"/><path d="M37.5 29.5V37.5H29.5" stroke-width="1.5"/><path d="M29.5 25.7L33.3 29.5L29.5 33.3L25.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V44.5H24" stroke-width="3"/><path d="M37.5 29.5V37.5H29.5" stroke-width="1.5"/><path d="M29.5 25.7L33.3 29.5L29.5 33.3L25.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>corner-br.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 16L32 24L24 32L16 24Z" fill="currentColor" stroke="none"/><path d="M24 6.3L27.2 9.5L24 12.7L20.8 9.5Z M38.5 20.8L41.7 24L38.5 27.2L35.3 24Z M24 35.3L27.2 38.5L24 41.7L20.8 38.5Z M9.5 20.8L12.7 24L9.5 27.2L6.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 16L32 24L24 32L16 24Z" fill="currentColor" stroke="none"/><path d="M24 6.3L27.2 9.5L24 12.7L20.8 9.5Z M38.5 20.8L41.7 24L38.5 27.2L35.3 24Z M24 35.3L27.2 38.5L24 41.7L20.8 38.5Z M9.5 20.8L12.7 24L9.5 27.2L6.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 16L32 24L24 32L16 24Z" fill="currentColor" stroke="none"/><path d="M24 6.3L27.2 9.5L24 12.7L20.8 9.5Z M38.5 20.8L41.7 24L38.5 27.2L35.3 24Z M24 35.3L27.2 38.5L24 41.7L20.8 38.5Z M9.5 20.8L12.7 24L9.5 27.2L6.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 16L32 24L24 32L16 24Z" fill="currentColor" stroke="none"/><path d="M24 6.3L27.2 9.5L24 12.7L20.8 9.5Z M38.5 20.8L41.7 24L38.5 27.2L35.3 24Z M24 35.3L27.2 38.5L24 41.7L20.8 38.5Z M9.5 20.8L12.7 24L9.5 27.2L6.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>diamond-cluster.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 120 120" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M0 0 H120M0 30 H120M0 60 H120M0 90 H120M0 120 H120M0 0 L20 30M40 0 L60 30M40 0 L20 30M80 0 L100 30M80 0 L60 30M120 0 L100 30M20 30 L40 60M20 30 L0 60M60 30 L80 60M60 30 L40 60M100 30 L120 60M100 30 L80 60M0 60 L20 90M40 60 L60 90M40 60 L20 90M80 60 L100 90M80 60 L60 90M120 60 L100 90M20 90 L40 120M20 90 L0 120M60 90 L80 120M60 90 L40 120M100 90 L120 120M100 90 L80 120" stroke-width="1"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 120 120" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M0 0 H120M0 30 H120M0 60 H120M0 90 H120M0 120 H120M0 0 L20 30M40 0 L60 30M40 0 L20 30M80 0 L100 30M80 0 L60 30M120 0 L100 30M20 30 L40 60M20 30 L0 60M60 30 L80 60M60 30 L40 60M100 30 L120 60M100 30 L80 60M0 60 L20 90M40 60 L60 90M40 60 L20 90M80 60 L100 90M80 60 L60 90M120 60 L100 90M20 90 L40 120M20 90 L0 120M60 90 L80 120M60 90 L40 120M100 90 L120 120M100 90 L80 120" stroke-width="1"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 120 120" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M0 0 H120M0 30 H120M0 60 H120M0 90 H120M0 120 H120M0 0 L20 30M40 0 L60 30M40 0 L20 30M80 0 L100 30M80 0 L60 30M120 0 L100 30M20 30 L40 60M20 30 L0 60M60 30 L80 60M60 30 L40 60M100 30 L120 60M100 30 L80 60M0 60 L20 90M40 60 L60 90M40 60 L20 90M80 60 L100 90M80 60 L60 90M120 60 L100 90M20 90 L40 120M20 90 L0 120M60 90 L80 120M60 90 L40 120M100 90 L120 120M100 90 L80 120" stroke-width="1"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 120 120" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M0 0 H120M0 30 H120M0 60 H120M0 90 H120M0 120 H120M0 0 L20 30M40 0 L60 30M40 0 L20 30M80 0 L100 30M80 0 L60 30M120 0 L100 30M20 30 L40 60M20 30 L0 60M60 30 L80 60M60 30 L40 60M100 30 L120 60M100 30 L80 60M0 60 L20 90M40 60 L60 90M40 60 L20 90M80 60 L100 90M80 60 L60 90M120 60 L100 90M20 90 L40 120M20 90 L0 120M60 90 L80 120M60 90 L40 120M100 90 L120 120M100 90 L80 120" stroke-width="1"/></svg></div>
+</div>
+<figcaption>triangle-lattice.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4L42.5 14.5V33.5L24 44L5.5 33.5V14.5Z" stroke-width="2.5"/><path d="M16.5 15.5V32.5M16.5 15.5H30M16.5 24H26.5M16.5 32.5H30" stroke-width="2"/><path d="M10 21.3L12.7 24L10 26.7L7.3 24Z M38 21.3L40.7 24L38 26.7L35.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4L42.5 14.5V33.5L24 44L5.5 33.5V14.5Z" stroke-width="2.5"/><path d="M16.5 15.5V32.5M16.5 15.5H30M16.5 24H26.5M16.5 32.5H30" stroke-width="2"/><path d="M10 21.3L12.7 24L10 26.7L7.3 24Z M38 21.3L40.7 24L38 26.7L35.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4L42.5 14.5V33.5L24 44L5.5 33.5V14.5Z" stroke-width="2.5"/><path d="M16.5 15.5V32.5M16.5 15.5H30M16.5 24H26.5M16.5 32.5H30" stroke-width="2"/><path d="M10 21.3L12.7 24L10 26.7L7.3 24Z M38 21.3L40.7 24L38 26.7L35.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4L42.5 14.5V33.5L24 44L5.5 33.5V14.5Z" stroke-width="2.5"/><path d="M16.5 15.5V32.5M16.5 15.5H30M16.5 24H26.5M16.5 32.5H30" stroke-width="2"/><path d="M10 21.3L12.7 24L10 26.7L7.3 24Z M38 21.3L40.7 24L38 26.7L35.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>crest.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 240 12" width="48" height="2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 6H106M134 6H237" stroke-width="2"/><path d="M110 3V9M130 3V9" stroke-width="1.5"/><path d="M120 2L124 6L120 10L116 6Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 240 12" width="48" height="2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 6H106M134 6H237" stroke-width="2"/><path d="M110 3V9M130 3V9" stroke-width="1.5"/><path d="M120 2L124 6L120 10L116 6Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 240 12" width="96" height="4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 6H106M134 6H237" stroke-width="2"/><path d="M110 3V9M130 3V9" stroke-width="1.5"/><path d="M120 2L124 6L120 10L116 6Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 240 12" width="96" height="4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 6H106M134 6H237" stroke-width="2"/><path d="M110 3V9M130 3V9" stroke-width="1.5"/><path d="M120 2L124 6L120 10L116 6Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>divider.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4.5L7.11 33.75H40.89Z"/><path d="M24 43.5L40.89 14.25H7.11Z"/><path d="M24 20L28 24L24 28L20 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4.5L7.11 33.75H40.89Z"/><path d="M24 43.5L40.89 14.25H7.11Z"/><path d="M24 20L28 24L24 28L20 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4.5L7.11 33.75H40.89Z"/><path d="M24 43.5L40.89 14.25H7.11Z"/><path d="M24 20L28 24L24 28L20 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4.5L7.11 33.75H40.89Z"/><path d="M24 43.5L40.89 14.25H7.11Z"/><path d="M24 20L28 24L24 28L20 24Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>star-cluster.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M-16 24L8 0M-8 24L16 0M0 24L24 0M8 24L32 0M16 24L40 0" stroke-width="1.5"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M-16 24L8 0M-8 24L16 0M0 24L24 0M8 24L32 0M16 24L40 0" stroke-width="1.5"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 24 24" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M-16 24L8 0M-8 24L16 0M0 24L24 0M8 24L32 0M16 24L40 0" stroke-width="1.5"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 24 24" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M-16 24L8 0M-8 24L16 0M0 24L24 0M8 24L32 0M16 24L40 0" stroke-width="1.5"/></svg></div>
+</div>
+<figcaption>hatch.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 6H12L22 24L12 42H6L16 24Z" fill="currentColor" stroke="none"/><path d="M26 6H32L42 24L32 42H26L36 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 6H12L22 24L12 42H6L16 24Z" fill="currentColor" stroke="none"/><path d="M26 6H32L42 24L32 42H26L36 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 6H12L22 24L12 42H6L16 24Z" fill="currentColor" stroke="none"/><path d="M26 6H32L42 24L32 42H26L36 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 6H12L22 24L12 42H6L16 24Z" fill="currentColor" stroke="none"/><path d="M26 6H32L42 24L32 42H26L36 24Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>chevron.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M10.92 37.08A18.5 18.5 0 1 1 37.08 37.08" stroke-width="3"/><path d="M15.23 32.77L13.18 34.82M12.38 28.33L9.66 29.35M11.63 23.12L8.74 22.91M13.12 18.06L10.57 16.67M16.57 14.07L14.83 11.75M21.36 11.88L20.75 9.05M26.64 11.88L27.25 9.05M31.43 14.07L33.17 11.75M34.88 18.06L37.43 16.67M36.37 23.12L39.26 22.91M35.62 28.33L38.34 29.35M32.77 32.77L34.82 34.82" stroke-width="1.5"/><path d="M37.08 33.88L40.28 37.08L37.08 40.28L33.88 37.08Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M10.92 37.08A18.5 18.5 0 1 1 37.08 37.08" stroke-width="3"/><path d="M15.23 32.77L13.18 34.82M12.38 28.33L9.66 29.35M11.63 23.12L8.74 22.91M13.12 18.06L10.57 16.67M16.57 14.07L14.83 11.75M21.36 11.88L20.75 9.05M26.64 11.88L27.25 9.05M31.43 14.07L33.17 11.75M34.88 18.06L37.43 16.67M36.37 23.12L39.26 22.91M35.62 28.33L38.34 29.35M32.77 32.77L34.82 34.82" stroke-width="1.5"/><path d="M37.08 33.88L40.28 37.08L37.08 40.28L33.88 37.08Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M10.92 37.08A18.5 18.5 0 1 1 37.08 37.08" stroke-width="3"/><path d="M15.23 32.77L13.18 34.82M12.38 28.33L9.66 29.35M11.63 23.12L8.74 22.91M13.12 18.06L10.57 16.67M16.57 14.07L14.83 11.75M21.36 11.88L20.75 9.05M26.64 11.88L27.25 9.05M31.43 14.07L33.17 11.75M34.88 18.06L37.43 16.67M36.37 23.12L39.26 22.91M35.62 28.33L38.34 29.35M32.77 32.77L34.82 34.82" stroke-width="1.5"/><path d="M37.08 33.88L40.28 37.08L37.08 40.28L33.88 37.08Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M10.92 37.08A18.5 18.5 0 1 1 37.08 37.08" stroke-width="3"/><path d="M15.23 32.77L13.18 34.82M12.38 28.33L9.66 29.35M11.63 23.12L8.74 22.91M13.12 18.06L10.57 16.67M16.57 14.07L14.83 11.75M21.36 11.88L20.75 9.05M26.64 11.88L27.25 9.05M31.43 14.07L33.17 11.75M34.88 18.06L37.43 16.67M36.37 23.12L39.26 22.91M35.62 28.33L38.34 29.35M32.77 32.77L34.82 34.82" stroke-width="1.5"/><path d="M37.08 33.88L40.28 37.08L37.08 40.28L33.88 37.08Z" fill="currentColor" stroke="none"/></svg></div>
+</div>
+<figcaption>ring-gauge.svg</figcaption>
+</figure>
+<figure class="card">
+<div class="stack">
+<div class="cell dark s48"><svg viewBox="0 0 96 96" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 10.5V21.5M10.5 16H21.5M48 10.5V21.5M42.5 16H53.5M80 10.5V21.5M74.5 16H85.5M16 42.5V53.5M10.5 48H21.5M80 42.5V53.5M74.5 48H85.5M16 74.5V85.5M10.5 80H21.5M48 74.5V85.5M42.5 80H53.5M80 74.5V85.5M74.5 80H85.5" stroke-width="1.5"/><path d="M48 43.5L52.5 48L48 52.5L43.5 48Z" stroke-width="1.5"/></svg></div>
+<div class="cell lime s48"><svg viewBox="0 0 96 96" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 10.5V21.5M10.5 16H21.5M48 10.5V21.5M42.5 16H53.5M80 10.5V21.5M74.5 16H85.5M16 42.5V53.5M10.5 48H21.5M80 42.5V53.5M74.5 48H85.5M16 74.5V85.5M10.5 80H21.5M48 74.5V85.5M42.5 80H53.5M80 74.5V85.5M74.5 80H85.5" stroke-width="1.5"/><path d="M48 43.5L52.5 48L48 52.5L43.5 48Z" stroke-width="1.5"/></svg></div>
+<div class="cell dark s96"><svg viewBox="0 0 96 96" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 10.5V21.5M10.5 16H21.5M48 10.5V21.5M42.5 16H53.5M80 10.5V21.5M74.5 16H85.5M16 42.5V53.5M10.5 48H21.5M80 42.5V53.5M74.5 48H85.5M16 74.5V85.5M10.5 80H21.5M48 74.5V85.5M42.5 80H53.5M80 74.5V85.5M74.5 80H85.5" stroke-width="1.5"/><path d="M48 43.5L52.5 48L48 52.5L43.5 48Z" stroke-width="1.5"/></svg></div>
+<div class="cell lime s96"><svg viewBox="0 0 96 96" width="96" height="96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 10.5V21.5M10.5 16H21.5M48 10.5V21.5M42.5 16H53.5M80 10.5V21.5M74.5 16H85.5M16 42.5V53.5M10.5 48H21.5M80 42.5V53.5M74.5 48H85.5M16 74.5V85.5M10.5 80H21.5M48 74.5V85.5M42.5 80H53.5M80 74.5V85.5M74.5 80H85.5" stroke-width="1.5"/><path d="M48 43.5L52.5 48L48 52.5L43.5 48Z" stroke-width="1.5"/></svg></div>
+</div>
+<figcaption>grid-marks.svg</figcaption>
+</figure>
+</main>
+<div class="foot">
+  <h2>24 PX / NATIVE</h2>
+  <div class="row">
+    <div><div class="minis"><div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V3.5H24" stroke-width="3"/><path d="M10.5 18.5V10.5H18.5" stroke-width="1.5"/><path d="M18.5 14.7L22.3 18.5L18.5 22.3L14.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V3.5H24" stroke-width="3"/><path d="M37.5 18.5V10.5H29.5" stroke-width="1.5"/><path d="M29.5 14.7L33.3 18.5L29.5 22.3L25.7 18.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3.5 24V44.5H24" stroke-width="3"/><path d="M10.5 29.5V37.5H18.5" stroke-width="1.5"/><path d="M18.5 25.7L22.3 29.5L18.5 33.3L14.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M44.5 24V44.5H24" stroke-width="3"/><path d="M37.5 29.5V37.5H29.5" stroke-width="1.5"/><path d="M29.5 25.7L33.3 29.5L29.5 33.3L25.7 29.5Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 16L32 24L24 32L16 24Z" fill="currentColor" stroke="none"/><path d="M24 6.3L27.2 9.5L24 12.7L20.8 9.5Z M38.5 20.8L41.7 24L38.5 27.2L35.3 24Z M24 35.3L27.2 38.5L24 41.7L20.8 38.5Z M9.5 20.8L12.7 24L9.5 27.2L6.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 120 120" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M0 0 H120M0 30 H120M0 60 H120M0 90 H120M0 120 H120M0 0 L20 30M40 0 L60 30M40 0 L20 30M80 0 L100 30M80 0 L60 30M120 0 L100 30M20 30 L40 60M20 30 L0 60M60 30 L80 60M60 30 L40 60M100 30 L120 60M100 30 L80 60M0 60 L20 90M40 60 L60 90M40 60 L20 90M80 60 L100 90M80 60 L60 90M120 60 L100 90M20 90 L40 120M20 90 L0 120M60 90 L80 120M60 90 L40 120M100 90 L120 120M100 90 L80 120" stroke-width="1"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4L42.5 14.5V33.5L24 44L5.5 33.5V14.5Z" stroke-width="2.5"/><path d="M16.5 15.5V32.5M16.5 15.5H30M16.5 24H26.5M16.5 32.5H30" stroke-width="2"/><path d="M10 21.3L12.7 24L10 26.7L7.3 24Z M38 21.3L40.7 24L38 26.7L35.3 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 240 12" width="24" height="1.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 6H106M134 6H237" stroke-width="2"/><path d="M110 3V9M130 3V9" stroke-width="1.5"/><path d="M120 2L124 6L120 10L116 6Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M24 4.5L7.11 33.75H40.89Z"/><path d="M24 43.5L40.89 14.25H7.11Z"/><path d="M24 20L28 24L24 28L20 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M-16 24L8 0M-8 24L16 0M0 24L24 0M8 24L32 0M16 24L40 0" stroke-width="1.5"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M6 6H12L22 24L12 42H6L16 24Z" fill="currentColor" stroke="none"/><path d="M26 6H32L42 24L32 42H26L36 24Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M10.92 37.08A18.5 18.5 0 1 1 37.08 37.08" stroke-width="3"/><path d="M15.23 32.77L13.18 34.82M12.38 28.33L9.66 29.35M11.63 23.12L8.74 22.91M13.12 18.06L10.57 16.67M16.57 14.07L14.83 11.75M21.36 11.88L20.75 9.05M26.64 11.88L27.25 9.05M31.43 14.07L33.17 11.75M34.88 18.06L37.43 16.67M36.37 23.12L39.26 22.91M35.62 28.33L38.34 29.35M32.77 32.77L34.82 34.82" stroke-width="1.5"/><path d="M37.08 33.88L40.28 37.08L37.08 40.28L33.88 37.08Z" fill="currentColor" stroke="none"/></svg></div>
+<div class="mini"><svg viewBox="0 0 96 96" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 10.5V21.5M10.5 16H21.5M48 10.5V21.5M42.5 16H53.5M80 10.5V21.5M74.5 16H85.5M16 42.5V53.5M10.5 48H21.5M80 42.5V53.5M74.5 48H85.5M16 74.5V85.5M10.5 80H21.5M48 74.5V85.5M42.5 80H53.5M80 74.5V85.5M74.5 80H85.5" stroke-width="1.5"/><path d="M48 43.5L52.5 48L48 52.5L43.5 48Z" stroke-width="1.5"/></svg></div>
+    </div><div class="lbl">all pieces at 24 px</div></div>
+    <div><div class="native"><svg viewBox="0 0 240 12" width="240" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 6H106M134 6H237" stroke-width="2"/><path d="M110 3V9M130 3V9" stroke-width="1.5"/><path d="M120 2L124 6L120 10L116 6Z" fill="currentColor" stroke="none"/></svg></div><div class="lbl">divider.svg 1:1</div></div>
+  </div>
+</div>
+<div class="foot">
+  <h2>TILE CHECK - css background-repeat at 1:1</h2>
+  <div class="row">
+    <div><div class="rep" style="width:252px;background-image:url(triangle-lattice.svg);background-size:120px 120px"></div><div class="lbl">triangle-lattice / 120</div></div>
+    <div><div class="rep" style="width:252px;background-image:url(hatch.svg);background-size:24px 24px"></div><div class="lbl">hatch / 24</div></div>
+    <div><div class="rep" style="width:252px;background-image:url(grid-marks.svg);background-size:96px 96px"></div><div class="lbl">grid-marks / 96</div></div>
+  </div>
+</div>
+</body></html>
