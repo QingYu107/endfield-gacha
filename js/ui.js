@@ -562,15 +562,61 @@
     if (FX()) { FX().setRarity(rec.rarity); FX().setFocus(0.32, 0.55); }
   }
 
+  /** 展示停留：用户点一下立刻走，否则等 ms 毫秒自动收起 */
+  function holdSolo(ms) {
+    return new Promise(resolve => {
+      let done = false;
+      const fin = () => {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        document.removeEventListener('pointerdown', onTap, true);
+        document.removeEventListener('keydown', onKey, true);
+        resolve();
+      };
+      const onTap = () => setTimeout(fin, 0);
+      const onKey = () => setTimeout(fin, 0);
+      const timer = setTimeout(fin, ui.skipped ? 40 : ms);
+      document.addEventListener('pointerdown', onTap, true);
+      document.addEventListener('keydown', onKey, true);
+    });
+  }
+
+  function soloKick(rec) {
+    const r = (rec && rec.rarity) || 4;
+    if (r >= 6) return 'SIGNAL OVERRIDE · 单次寻访';
+    if (r === 5) return 'SIGNAL LOCKED · 单次寻访';
+    return 'SIGNAL TRACE · 单次寻访';
+  }
+
   async function showSolo(rec, pool, kicker) {
     const solo = $('#psSolo');
     renderSolo(rec, pool, kicker);
+    // 先让新立绘解码完成，否则会短暂显示上一张（余烬/明河串图）
+    const art = $('#soloImg');
+    if (art && art.decode) {
+      try {
+        await Promise.race([
+          art.decode().catch(() => {}),
+          new Promise(r => setTimeout(r, ui.skipped ? 120 : 320))
+        ]);
+      } catch (e) {}
+    }
     solo.classList.remove('out');
     solo.classList.add('on');
     solo.style.opacity = '1';
     solo.style.visibility = 'visible';
     await sleep(30);
     solo.classList.add('reveal');
+    const lineEl = $('#soloLine');
+    const vrec = window.VOICES ? window.VOICES[rec.id] : null;
+    if (lineEl) {
+      lineEl.textContent = vrec ? '「' + vrec.text + '」' : '';
+      lineEl.classList.toggle('on', !!vrec);
+    }
+    if (rec.rarity === 6) {
+      if (!A.playVoice(rec.id)) A.stopSpeak(); // 无官方配音时保持安静，不用合成音
+    }
     Sfx.six();
     if (FX()) FX().burst(1);
     spawnSparks();
@@ -611,18 +657,67 @@
     }
   }
 
-  function revealAgain(pool) {
+  function revealAgain(pool, n) {
     const b = $('#psAgain');
     if (!b) return;
-    const isW = pool.kind === 'weapon';
+    const isW = pool.kind === 'weapon' || !pool.single;
     const free = G.freeReady(pool);
+    // 加急是替换机制：一旦有加急，下一次无论点哪个按钮都走免费十连
+    const kind = free ? 'ten' : (n === 1 && !isW ? 'single' : 'ten');
+    const cost = kind === 'single' ? pool.cost.single : pool.cost.ten;
     const money = isW ? G.state.quota : G.state.dia;
+    ui.againKind = kind;
     b.hidden = false;
-    b.querySelector('.b-k').textContent = '再来十连';
+    b.querySelector('.b-k').textContent = kind === 'single' ? '再来一抽' : '再来十连';
     b.querySelector('.b-s').textContent = free ? '加急 · 免费'
-      : (isW ? fmt(pool.cost.ten) + ' 配额' : fmt(pool.cost.ten) + ' 嵌晶玉');
-    b.disabled = !free && money < pool.cost.ten;
+      : (isW ? fmt(cost) + ' 配额' : fmt(cost) + ' 嵌晶玉');
+    b.disabled = !free && money < cost;
     b.classList.toggle('free', !!free);
+  }
+
+  function drawVwLog() {
+    const de = document.documentElement;
+    const rows = ['vw', 'inner=' + window.innerWidth + ' client=' + de.clientWidth + ' scroll=' + de.scrollWidth,
+      'dpr=' + window.devicePixelRatio + ' ua=mobile:' + /Mobi|Android/i.test(navigator.userAgent)];
+    rows.push('body.scroll=' + document.body.scrollWidth + ' body.client=' + document.body.clientWidth);
+    const all = [...document.querySelectorAll('body *')];
+    const wide = all.map(el => ({ el, r: el.getBoundingClientRect(), cs: getComputedStyle(el) }))
+      .filter(x => (x.r.right > de.clientWidth + 1 || x.r.width > de.clientWidth + 1) && x.cs.position !== 'fixed' && x.cs.display !== 'none')
+      .sort((a, b) => b.r.right - a.r.right).slice(0, 7);
+    wide.forEach(x => {
+      const cls = (x.el.className || '').toString().trim().split(/\s+/).slice(0, 2).join('.');
+      const par = x.el.parentElement;
+      const pcls = par ? (par.className || '').toString().trim().split(/\s+/)[0] : '';
+      rows.push(x.el.tagName.toLowerCase() + '.' + cls + ' <' + pcls + '> r=' + Math.round(x.r.right) + ' w=' + Math.round(x.r.width) + ' ovf=' + x.cs.overflowX);
+    });
+    let el = document.getElementById('vwLog');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'vwLog';
+      el.style.cssText = 'position:fixed;left:0;top:0;z-index:999999;font:11px/1.4 ui-monospace,monospace;color:#0f0;background:rgba(0,0,0,.85);padding:6px 8px;white-space:pre-wrap;max-width:100vw';
+      document.body.appendChild(el);
+    }
+    el.textContent = rows.join('\n');
+  }
+
+  function drawProbe() {
+    let el = document.getElementById('probeLog');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'probeLog';
+      el.style.cssText = 'position:fixed;left:8px;top:8px;z-index:99999;font:12px/1.45 ui-monospace,monospace;color:#9fe6ff;background:rgba(0,0,0,.82);border:1px solid #2a6;padding:8px 10px;max-width:560px;white-space:pre-wrap';
+      document.body.appendChild(el);
+    }
+    const m = document.getElementById('modal');
+    const card = m && m.querySelector('.modal-card, .md, .modal-inner');
+    const v = m && m.querySelector('.md-voice');
+    const lines = [
+      'modal.on=' + (m ? m.classList.contains('on') : '-'),
+      'card.op=' + (card ? getComputedStyle(card).opacity : '-'),
+      'voice=' + (v ? 'yes' : 'no') + (v ? ' dur=' + (v.querySelector('.mv-head') || {}).textContent : ''),
+      v ? 'text=' + v.innerText.replace(/\s+/g, ' ').slice(0, 120) : ''
+    ];
+    el.textContent = lines.join('\n');
   }
 
   function drawSeqLog() {
@@ -665,6 +760,10 @@
     $('#psId').textContent = 'SIGNAL // ' + pool.name;
     ribbon.classList.remove('on');
     solo.classList.remove('on', 'reveal', 'out');
+    solo.style.opacity = '0';
+    solo.style.visibility = 'hidden';
+    const soloLineEl = $('#soloLine');
+    if (soloLineEl) { soloLineEl.textContent = ''; soloLineEl.classList.remove('on'); }
     const heat = $('#psHeat');
     if (heat) { heat.classList.remove('six', 'flicker'); heat.querySelector('i').style.width = '0%'; }
     $('.ps-beams').classList.remove('on');
@@ -698,12 +797,12 @@
         ribbon.classList.add('on');
         $('.ps-flash').classList.add('fire');
         setTimeout(() => $('.ps-flash').classList.remove('fire'), 600);
-        A.speak(w6.name, { rate: 0.95 });
+        A.playVoice('weapon_' + w6.id); // 无官方音频时静默
       }
       if (heat) { heat.querySelector('i').style.width = '100%'; if (w6) heat.classList.add('six', 'flicker'); }
       $('#psTitle').textContent = w6 ? '六星武器确认' : '武库申领完成';
       $('#psSkip').hidden = true;
-      $('#psOk').hidden = false; revealAgain(pool);
+      $('#psOk').hidden = false; revealAgain(pool, n);
       $('#psHint').textContent = '点击「确认」收取本次申领结果';
       Sfx.confirm();
       ui.busy = false;
@@ -716,7 +815,7 @@
       for (let k = 0; k < sixes.length; k++) {
         const rec = sixes[k];
         const kick = n === 1
-          ? 'SIGNAL LOCKED · 单次寻访'
+          ? soloKick(rec)
           : (sixes.length > 1
             ? 'SIGNAL OVERRIDE · 十连寻访 ' + (k + 1) + ' / ' + sixes.length
             : 'SIGNAL OVERRIDE · 十连寻访');
@@ -729,12 +828,15 @@
           // single pull stays on the showcase
           $('#psTitle').textContent = '六星信号确认';
           $('#psSkip').hidden = true;
-          $('#psOk').hidden = false; revealAgain(pool);
-          $('#psHint').textContent = '点击「确认」收取本次寻访结果';
+          $('#psOk').hidden = false; revealAgain(pool, n);
+          $('#psHint').textContent = '点击「确认」收取，或 7 秒后自动收起';
           Sfx.confirm();
           ui.busy = false;
+          await holdSolo(7000);
+          if ($('#pullStage').classList.contains('on')) closeStage();
           return;
         }
+        await holdSolo(7000);
         await hideSolo();
         await sleep(ui.skipped ? 0 : (k < sixes.length - 1 ? 300 : 200));
       }
@@ -776,19 +878,20 @@
         $('.ps-flash').classList.add('fire');
         setTimeout(() => $('.ps-flash').classList.remove('fire'), 600);
         if (FX()) { FX().setRarity(6); FX().burst(1); }
-        A.speak('六星干员，' + six.name, { rate: 0.92 });
         await sleep(ui.skipped ? 40 : 420);
       }
     } else {
       // non-6★ single pull showcase
       const rec = results[0];
-      await showSolo(rec, pool, 'SIGNAL LOCKED · 单次寻访');
-      $('#psTitle').textContent = '寻访完成';
+      await showSolo(rec, pool, soloKick(rec));
+      $('#psTitle').textContent = rec.rarity >= 5 ? '寻访完成' : '寻访信号解析完成';
       $('#psSkip').hidden = true;
-      $('#psOk').hidden = false; revealAgain(pool);
-      $('#psHint').textContent = '点击「确认」收取本次寻访结果';
+      $('#psOk').hidden = false; revealAgain(pool, n);
+      $('#psHint').textContent = '点击「确认」收取，或 7 秒后自动收起';
       Sfx.confirm();
       ui.busy = false;
+      await holdSolo(7000);
+      if ($('#pullStage').classList.contains('on')) closeStage();
       return;
     }
 
@@ -811,7 +914,7 @@
     }
     $('#psTitle').textContent = six ? '六星确认 · 十连结果' : '寻访完成';
     $('#psSkip').hidden = true;
-    $('#psOk').hidden = false; revealAgain(pool);
+    $('#psOk').hidden = false; revealAgain(pool, n);
     $('#psHint').textContent = '点击「确认」收取本次寻访结果';
     Sfx.confirm();
     ui.busy = false;
@@ -1099,7 +1202,7 @@
           <div class="rule-body">${(r.blocks || []).map(b => b.type === 'h2' ? `<h2>${esc(b.text)}</h2>` : `<p>${esc(b.text)}</p>`).join('')}</div>
         </details>`).join('')}
       <div class="rule-body" style="border:1px solid var(--line);margin-top:10px">
-        <p style="color:var(--dim-2)">本页面为同人模拟器：卡池、概率、保底参数与立绘取自终末地 Wiki（fz.wiki）；音效与背景氛围音由本地合成；语音为浏览器 TTS 试听。干员与美术版权归上海鹰角网络科技有限公司所有，仅作学习与娱乐用途。</p>
+        <p style="color:var(--dim-2)">本页面为同人模拟器：卡池、概率、保底参数与立绘取自终末地 Wiki（fz.wiki）；音效与背景氛围音由本地合成；六星干员语音为 Wiki 收录的官方中文配音，未收录者保持静默，不做合成配音。干员与美术版权归上海鹰角网络科技有限公司所有，仅作学习与娱乐用途。</p>
       </div>`;
   }
 
@@ -1123,6 +1226,7 @@
     const pulls = G.state.hist.filter(h => h.id === id);
     const quote = quoteOf(o);
     const cards = (o.potentials || []);
+    const vr = (window.VOICES || {})[id] || null;
 
     openModal(`
       <div class="md-op">
@@ -1149,10 +1253,17 @@
             <dt>记录</dt><dd>${pulls.length} 次</dd>
           </dl>
 
-          <div style="display:flex;gap:8px;align-items:center">
-            <button class="chip" data-voice="${esc(quote)}">▶ 语音试听 <span style="opacity:.5">TTS</span></button>
-            <span style="font:400 9px/1 var(--f-mono);color:var(--dim-2);letter-spacing:.1em">本地合成 · 非官方配音</span>
-          </div>
+          ${vr ? `<div class="md-voice">
+            <div class="mv-head"><b>语音</b><span>${esc(vr.scene || '台词')} · ${vr.dur}s</span></div>
+            <div class="mv-line">「${esc(vr.text)}」</div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="chip" data-voice-id="${esc(o.id)}">▶ 播放</button>
+              <span style="font:400 9px/1 var(--f-mono);color:var(--dim-2);letter-spacing:.1em">官方配音 · 来自终末地 Wiki</span>
+            </div>
+          </div>` : `<div style="display:flex;gap:8px;align-items:center">
+            <span class="chip chip-off" style="opacity:.45;cursor:default">该干员暂无收录语音</span>
+            <span style="font:400 9px/1 var(--f-mono);color:var(--dim-2);letter-spacing:.1em">暂无官方语音 · 本地合成</span>
+          </div>`}
 
           <div class="pot-wrap">
             <div class="pot-head"><b>潜能 / POTENTIAL</b><span>${pot} / 5 · 信物 ${bag ? Math.max(0, bag.n - 1) : 0}</span></div>
@@ -1190,8 +1301,14 @@
     const vbtn = $('#modalBody [data-voice]');
     if (vbtn) vbtn.addEventListener('click', () => {
       Sfx.potential();
-      A.speak(vbtn.dataset.voice, { rate: 0.95 });
+      A.playVoice(vbtn.dataset.voice);
       toast('语音试听 · 浏览器本地合成', 1800);
+    });
+    const rbtn = $('#modalBody [data-voice-id]');
+    if (rbtn) rbtn.addEventListener('click', () => {
+      Sfx.potential();
+      const ok = A.playVoice(rbtn.dataset.voiceId);
+      toast(ok ? '语音 · 官方配音' : '语音加载失败', 1600);
     });
   }
 
@@ -1235,7 +1352,7 @@
         <div class="sup-card"><b>武库配额 ×20,000</b><span>武库申领 1,980/十连</span><button data-act="quota">补充</button></div>
         <div class="sup-card"><b>音效 ${on.sfx ? '开启' : '关闭'}</b><span>本地合成音 · 点击切换</span><button data-act="sfx">切换</button></div>
         <div class="sup-card"><b>背景氛围音 ${on.bgm ? '开启' : '关闭'}</b><span>24 秒循环 · 音量 24%</span><button data-act="bgm">切换</button></div>
-        <div class="sup-card"><b>语音 ${A.voiceOn ? '开启' : '关闭'}</b><span>六星播报与台词 TTS</span><button data-act="voice">切换</button></div>
+        <div class="sup-card"><b>语音 ${A.voiceOn ? '开启' : '关闭'}</b><span>六星官方中文配音</span><button data-act="voice">切换</button></div>
         <div class="sup-card danger"><b>清空存档</b><span>删除全部进度与记录</span><button data-act="reset">重置</button></div>
       </div>`);
     $$('#modalBody .sup-card button').forEach(b => b.addEventListener('click', () => {
@@ -1372,8 +1489,11 @@
     bindTabs();
     if (qs.get('lucky') === '1') { const rnd = Math.random; Math.random = () => rnd() * 0.002; }
     if (qs.get('op')) setTimeout(() => openOp(qs.get('op')), 700);
+    // 深链：index.html?op=<干员 id> 直接打开详情
+    if (qs.get('op') && G.OPS[qs.get('op')]) setTimeout(() => openOp(qs.get('op')), 260);
     if (qs.get('dia')) G.state.dia = +qs.get('dia');
     if (qs.get('quota')) G.state.quota = +qs.get('quota');
+    if (qs.get('probe')) setTimeout(drawProbe, 1500);
     if (qs.get('sim')) {
       const n = clamp(parseInt(qs.get('sim'), 10) || 1, 1, 300);
       for (let i = 0; i < n; i++) G.pull(ui.pool, 10, { kind: 'ten' });
@@ -1412,9 +1532,10 @@
       if (!G.freeReady(p) && (p.maxPulls && G.poolState(p.id).pulls >= p.maxPulls)) {
         toast('本卡池寻访次数已达上限'); Sfx.error(); return;
       }
+      const nextKind = ui.againKind || 'ten';
       closeStage();
       await sleep(60);
-      doPull('ten');
+      doPull(nextKind);
     });
     $('#pullStage').addEventListener('click', e => {
       if (e.target.closest('.ps-head') || e.target.closest('.ps-ok')) return;
@@ -1448,6 +1569,7 @@
     ui.fast = qs.get('fast') === '1';
     ui.noType = qs.get('notype') === '1';
     ui.debugSeq = qs.get('seq') === '1';
+    if (qs.get('vw') === '1') setTimeout(drawVwLog, 1200);
     if (qs.get('tab')) {
       const t = $$('#tabs .tab').find(x => x.dataset.tab === qs.get('tab'));
       if (t) setTimeout(() => t.click(), 400);
