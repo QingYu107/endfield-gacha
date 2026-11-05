@@ -132,7 +132,19 @@ def main():
                        "voice": bool(got_audio)}
         print("  ok %-6s %5.2fs %-10s %s" % (name, dur, pickd["key"], pickd["text"][:18]))
 
-    js = "/* 六星干员语音：抓自 voice.fz.wiki（干员频道台词），仅保留中文 */\n"
+    # 手工补充：Wiki 上没有音频的干员，从官方语音集里切出来的单句
+    MANUAL = {
+        "chr_0037_minghe": {
+            "text": "宏科院，明河，前来为您助力。靖天都尉？那个名号在这里派不上用场。",
+            "dur": 6.95, "scene": "干员报到", "voice": True,
+        },
+    }
+    for cid, rec in MANUAL.items():
+        mp3 = os.path.join(OUT_DIR, cid + ".mp3")
+        if os.path.exists(mp3):
+            result[cid] = rec
+
+    js = "/* 六星干员语音：Wiki 干员频道录音 + 手工补充（明河取自官方语音集），仅中文 */\n"
     js += "window.VOICES = " + json.dumps(result, ensure_ascii=False, indent=1) + ";\n"
     open(os.path.join(ROOT, "data", "voices.js"), "w", encoding="utf-8").write(js)
     total = sum(os.path.getsize(os.path.join(OUT_DIR, f)) for f in os.listdir(OUT_DIR))
