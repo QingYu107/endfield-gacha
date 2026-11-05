@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>终末地 · 寻访模拟器 // ENDFIELD HEADHUNT</title>
+<meta name="description" content="明日方舟：终末地 寻访（抽卡）模拟器 — 卡池、概率、保底与本期限定干员立绘，数据来自终末地 Wiki。">
+<link rel="stylesheet" href="css/app.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0c0d'/%3E%3Cpath d='M8 8h16v4H12v4h9v4H12v4H8z' fill='%23ffef5a'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============ boot ============ -->
+<div class="boot" id="boot">
+  <div class="boot-mark">
+    <span class="bm-a">END</span><span class="bm-b">FIELD</span>
+  </div>
+  <div class="boot-line"><i></i></div>
+  <div class="boot-meta">
+    <span>LOADING ASSETS</span>
+    <span id="bootPct">0%</span>
+  </div>
+  <div class="boot-fine">HEADHUNT SIMULATOR / BUILD 01 · DATA: FZ.WIKI</div>
+</div>
+
+<!-- ============ top bar ============ -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40"><path d="M4 6h32v7H12v5h16v7H12v9H4z"/></svg>
+    </div>
+    <div class="brand-txt">
+      <b>终末地</b><span>寻访模拟器</span>
+    </div>
+    <div class="brand-sub">// HEADHUNT SIM</div>
+  </div>
+
+  <div class="wallet">
+    <div class="wal" title="嵌晶玉">
+      <img src="assets/ui/diamond.webp" alt="">
+      <div><b id="walDia">0</b><span>嵌晶玉</span></div>
+    </div>
+    <div class="wal" title="武库配额">
+      <img src="assets/ui/quota.webp" alt="">
+      <div><b id="walQuota">0</b><span>武库配额</span></div>
+    </div>
+  </div>
+
+  <div class="top-actions">
+    <button class="ico-btn" id="btnLog" title="寻访记录"><span>记录</span></button>
+    <button class="ico-btn" id="btnSupply" title="补给 / 存档"><span>补给</span></button>
+    <button class="ico-btn" id="btnSound" title="音效"><span id="soundTxt">音效 开</span></button>
+  </div>
+</header>
+
+<!-- ============ rail ============ -->
+<nav class="rail" id="rail"></nav>
+
+<!-- ============ main ============ -->
+<div class="shell">
+  <aside class="poolcol">
+    <div class="col-head">
+      <span>卡池 / POOL</span>
+      <i id="poolCount"></i>
+    </div>
+    <div class="pool-list" id="poolList"></div>
+    <div class="col-foot">
+      <div class="mini-note">数据源 <a href="https://www.fz.wiki/" target="_blank" rel="noreferrer">fz.wiki</a></div>
+      <div class="mini-note dim">非官方 · 同人模拟</div>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <!-- banner -->
+    <section class="banner" id="banner">
+      <div class="banner-bg" id="bannerBg"></div>
+      <div class="banner-grid"></div>
+      <div class="banner-scan"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-crest"></div>
+      <div class="orn-set"><i class="o-tl"></i><i class="o-tr"></i><i class="o-bl"></i><i class="o-br"></i></div>
+
+      <div class="banner-top">
+        <div class="crumbs">
+          <span id="crType">特许寻访</span><i>/</i><span id="crId">SPECIAL</span>
+        </div>
+        <div class="banner-tags">
+          <span class="tag hot" id="tagRate">概率提升</span>
+          <span class="tag" id="tagOpen"></span>
+        </div>
+      </div>
+
+      <div class="banner-side">HEADHUNT <b id="sideNo">06</b></div>
+
+      <div class="banner-main">
+        <div class="banner-copy">
+          <div class="eyebrow">CURRENT BANNER</div>
+          <h1 id="poolName">—</h1>
+          <div class="up-line" id="upLine"></div>
+          <p class="banner-desc" id="poolDesc"></p>
+          <p class="banner-quote" id="poolQuote"></p>
+
+          <div class="rate-strip" id="rateStrip"></div>
+        </div>
+
+        <div class="banner-art" id="bannerArt">
+          <div class="art-halo"></div>
+          <svg class="art-sigil" viewBox="0 0 480 480" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <circle class="sg-outer" cx="240" cy="240" r="214" stroke-dasharray="2 12" />
+              <circle cx="240" cy="240" r="178" opacity=".16" />
+              <circle cx="240" cy="240" r="126" stroke-dasharray="1 7" opacity=".3" />
+              <circle cx="240" cy="240" r="70" opacity=".22" />
+              <path d="M240 18v34M240 428v34M18 240h34M428 240h34" opacity=".55" />
+              <path d="M240 96l14 24-14 24-14-24z" opacity=".5" />
+              <path d="M240 384l14-24-14-24-14 24z" opacity=".5" />
+              <path d="M96 240l24-14 24 14-24 14z" opacity=".5" />
+              <path d="M384 240l-24-14-24 14 24 14z" opacity=".5" />
+              <path d="M152 152l30 8-8 30-30-8z" opacity=".3" />
+              <path d="M328 328l-30-8 8-30 30 8z" opacity=".3" />
+            </g>
+            <g fill="currentColor" opacity=".5">
+              <rect x="236" y="34" width="8" height="3" />
+              <rect x="236" y="443" width="8" height="3" />
+              <rect x="34" y="236" width="3" height="8" />
+              <rect x="443" y="236" width="3" height="8" />
+            </g>
+          </svg>
+          <img id="upArt" alt="">
+          <div class="art-shadow"></div>
+          <div class="art-plate">
+            <b id="artName">—</b>
+            <span id="artSub"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-foot">
+        <div class="pull-counters" id="pullCounters"></div>
+        <div class="pull-buttons">
+          <button class="btn ghost" id="btnBurst">
+            <span class="b-k">连续十连</span><span class="b-s">×10 · 快速</span>
+          </button>
+          <button class="btn ghost" id="btnFree" hidden>
+            <span class="b-k">加急十连</span><span class="b-s">免费</span>
+          </button>
+          <button class="btn" id="btnSingle">
+            <span class="b-k">单次寻访</span><span class="b-s" id="costSingle">500</span>
+          </button>
+          <button class="btn primary" id="btnTen">
+            <span class="b-k">十连寻访</span><span class="b-s" id="costTen">5000</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- lower -->
+    <section class="lower">
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="result">寻访结果<i>RESULT</i></button>
+        <button class="tab" data-tab="stats">数据统计<i>STATS</i></button>
+        <button class="tab" data-tab="codex">干员图鉴<i>ARCHIVE</i></button>
+        <button class="tab" data-tab="rules">概率与规则<i>RULES</i></button>
+      </div>
+
+      <div class="panels">
+        <div class="panel active" id="panel-result"></div>
+        <div class="panel" id="panel-stats"></div>
+        <div class="panel" id="panel-codex"></div>
+        <div class="panel" id="panel-rules"></div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="prog" id="prog">
+    <div class="prog-head">
+      <span>寻访进度</span><i>PROGRESS</i>
+    </div>
+    <div id="progBody"></div>
+    <div class="prog-foot">
+      <button class="lnk" id="btnRulesTop">查看规则说明 →</button>
+    </div>
+  </aside>
+</div>
+
+<!-- ============ pull overlay ============ -->
+<div class="pullstage" id="pullStage" aria-hidden="true">
+  <canvas class="ps-fx" id="fxCanvas"></canvas>
+  <div class="ps-tech"></div>
+  <div class="ps-reticle"></div>
+  <div class="ps-backdrop" id="psBackdrop"></div>
+  <div class="ps-flash"></div>
+  <div class="ps-beams"></div>
+  <div class="ps-sparks" id="psSparks"></div>
+  <div class="ps-scan"></div>
+
+  <div class="ps-preroll" id="psPreroll">
+    <span class="pr-c tl"></span><span class="pr-c tr"></span><span class="pr-c bl"></span><span class="pr-c br"></span>
+    <div class="pr-core">
+      <div class="pr-tag">SIGNAL ACQUISITION</div>
+      <div class="pr-pool" id="prPool">—</div>
+      <div class="pr-line" id="prLine">接通寻访频道…</div>
+      <div class="pr-bar"><i id="prBar"></i></div>
+      <div class="pr-meta"><span id="prMeta">NODE 00</span><span id="prRate">6★ 0.8000%</span></div>
+    </div>
+  </div>
+
+  <div class="ps-decode" id="psDecode">
+    <div class="dc-line" id="dcTop">ENDFIELD</div>
+    <div class="dc-line dc-main" id="dcMain">HEADHUNT</div>
+    <div class="dc-sub" id="dcSub">SIGNAL ACQUISITION // 0.8%</div>
+    <div class="dc-bar"><i id="dcBar"></i></div>
+  </div>
+
+  <div class="ps-armory" id="psArmory">
+    <i class="ar-corner tl"></i><i class="ar-corner tr"></i><i class="ar-corner bl"></i><i class="ar-corner br"></i>
+    <div class="ar-up">
+      <img id="arUpImg" alt="">
+      <span class="ar-up-k">RATE UP TARGET</span>
+      <b id="arUpName">—</b>
+      <em>6★ · 25% OF SIX-STAR DROPS</em>
+    </div>
+    <div class="ar-core">
+      <div class="ar-tag">ARSENAL LINK</div>
+      <div class="ar-name" id="arName">武库申领</div>
+      <div class="ar-sub" id="arSub">WEAPON SUPPLY // REQUESTING 10 UNITS</div>
+      <div class="ar-track"><i id="arBar"></i></div>
+    </div>
+  </div>
+
+  <div class="ps-heat" id="psHeat"><i></i></div>
+
+  <div class="ps-head">
+    <div class="ps-id" id="psId">SIGNAL // 01</div>
+    <div class="ps-title" id="psTitle">正在接通…</div>
+    <button class="ps-skip" id="psSkip">跳过 <kbd>ESC</kbd></button>
+  </div>
+
+  <div class="ps-ribbon" id="psRibbon">
+    <b>6★</b><span id="psRibbonName">—</span><em id="psRibbonTag">RATE UP</em>
+  </div>
+
+  <div class="ps-solo" id="psSolo">
+    <div class="solo-rarity" id="soloRarity">6</div>
+    <div class="solo-art">
+      <div class="solo-halo"></div>
+      <img id="soloImg" alt="">
+    </div>
+    <div class="solo-info">
+      <div class="solo-kicker" id="soloKicker">SIGNAL LOCKED · 单次寻访</div>
+      <div class="solo-name" id="soloName">—</div>
+      <div class="solo-en" id="soloEn">—</div>
+      <div class="solo-stars" id="soloStars"></div>
+      <div class="solo-prof" id="soloProf"><img alt=""><span></span></div>
+      <div class="solo-tags" id="soloTags"></div>
+      <div class="solo-data" id="soloData"></div>
+    </div>
+    <div class="solo-line"></div>
+  </div>
+
+  <div class="ps-cards" id="psCards"></div>
+
+  <div class="ps-foot">
+    <div class="ps-sum" id="psSum"></div>
+    <div class="ps-hint" id="psHint">点击任意处继续</div>
+    <div class="ps-actions">
+      <button class="btn ps-again" id="psAgain" hidden><span class="b-k">再来十连</span><span class="b-s">十连</span></button>
+      <button class="btn primary ps-ok" id="psOk" hidden>确认 <span class="b-s">确认收取</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ modal ============ -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-scrim"></div>
+  <div class="modal-box" id="modalBox">
+    <button class="modal-x" id="modalX">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="data/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
