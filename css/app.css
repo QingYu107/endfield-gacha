@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    缁堟湯鍦?路 瀵昏妯℃嫙鍣? 鈥? app.css
    palette: industrial black / bone white / signal yellow
    ========================================================================== */
@@ -1989,4 +1989,80 @@ body.lite .art-sigil { animation: none; }
   .ar-corner.tr, .ar-corner.br { right: 14px; }
   .ar-corner.tl, .ar-corner.tr { top: 14px; }
   .ar-corner.bl, .ar-corner.br { bottom: 14px; }
+}
+
+/* ============================================================
+   mobile containment — 手机端横向溢出修正
+   问题：1fr 轨道的 min 是 auto，banner 立绘/横向卡池条把整页撑到 2500px，
+   手机浏览器于是整页缩小，看起来像桌面版。
+   ============================================================ */
+html { overflow-x: hidden; }
+
+@media (max-width: 1000px) {
+  .shell { grid-template-columns: minmax(0, 1fr); max-width: 100%; overflow-x: clip; }
+  .poolcol, .pool-list, .stage, .banner, .banner-main, .banner-art,
+  .banner-copy, .prog, .chart-wrap, .log-table { min-width: 0; max-width: 100%; }
+  .pool-list { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .poolcol { width: 100%; }
+}
+
+@media (max-width: 760px) {
+  .banner-art, .banner-art img { max-width: 100% !important; }
+  .banner-art { width: 100% !important; }
+  .banner { min-height: 0; }
+  .topbar, .topbar-in { min-width: 0; max-width: 100%; }
+}
+
+/* ---- 干员语音台词（真实配音字幕） ---------------------------------------- */
+.ps-solo .solo-line {
+  position: static; height: auto; background: none; opacity: 0;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  border-top: 1px solid color-mix(in srgb, var(--rc, var(--six)) 50%, transparent);
+  padding-top: 9px; max-width: 40vw; margin-top: 2px;
+  font: 400 clamp(11px, 1.02vw, 15px)/1.6 var(--f-sans, system-ui, sans-serif);
+  letter-spacing: .02em; color: rgba(255, 255, 255, .70);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, .92);
+  transform: translateY(6px);
+  transition: opacity .55s .18s, transform .55s .18s;
+}
+.ps-solo .solo-line.on { opacity: 1; transform: none; }
+
+@media (max-width: 1000px) {
+  .ps-solo .solo-line { max-width: 88vw; }
+}
+
+/* ---- 干员详情：官方语音块 ------------------------------------------------ */
+.md-voice {
+  margin: 12px 0 4px; padding: 10px 12px;
+  border: 1px solid var(--line); border-left: 2px solid var(--six);
+  background: linear-gradient(90deg, rgba(255, 90, 78, .07), transparent 60%);
+}
+.mv-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.mv-head b { font: 700 10px/1 var(--f-mono); letter-spacing: .18em; color: var(--six); }
+.mv-head span { font: 400 9px/1 var(--f-mono); letter-spacing: .12em; color: var(--dim-2); }
+.mv-line {
+  font: 400 12px/1.75 var(--f-sans, system-ui, sans-serif);
+  color: rgba(255, 255, 255, .78); margin-bottom: 9px;
+}
+
+/* 底部提示与操作区可读性 */
+.ps-hint { color: rgba(255, 255, 255, .52) !important; letter-spacing: .12em; }
+.ps-hint b, .ps-hint strong { color: rgba(255, 255, 255, .78); }
+
+/* ---- 手机端 solo 版式修正：立绘上收、信息块与操作区不重叠 ---------------- */
+@media (max-width: 760px) {
+  .ps-solo .solo-art img { height: calc(100% - 44vh); width: auto; max-width: 100vw; }
+  .ps-solo .solo-info { bottom: 152px; left: 16px; right: 16px; gap: 8px; }
+  .ps-solo .solo-name { font-size: clamp(30px, 9.6vw, 42px); }
+  .ps-solo .solo-en { font-size: 9px; letter-spacing: .28em; }
+  .ps-solo .solo-stars { gap: 4px; }
+  .ps-solo .solo-stars .rar-star { font-size: 10px; }
+  .ps-solo .solo-line {
+    font-size: 11.5px; line-height: 1.62; -webkit-line-clamp: 2; max-width: 100%;
+  }
+  .ps-solo .solo-rarity { font-size: 20vh; right: -8vw; top: 1vh; opacity: .2; }
+  .pullstage .ps-actions { display: flex; gap: 8px; justify-content: stretch; }
+  .pullstage .ps-again, .pullstage .ps-ok { flex: 1 1 0; min-width: 0; }
+  .pullstage .ps-again .b-k { font-size: 12.5px; white-space: nowrap; }
+  .pullstage .ps-again .b-s { font-size: 9px; white-space: nowrap; }
 }
