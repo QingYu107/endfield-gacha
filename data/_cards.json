@@ -1,0 +1,648 @@
+{
+ "chr_0037_minghe": [
+  {
+   "lvl": 1,
+   "name": "照野",
+   "desc": "星汉垂野，银枪照夜，一息与河山。",
+   "img": "assets/cards/chr_0037_minghe_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "宿云",
+   "desc": "宿云栖风，闲时野趣，行路宴浮生。",
+   "img": "assets/cards/chr_0037_minghe_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "携光",
+   "desc": "电光灼灼，一念昭昭，愿河清海晏。",
+   "img": "assets/cards/chr_0037_minghe_5.webp"
+  }
+ ],
+ "chr_0009_azrila": [
+  {
+   "lvl": 1,
+   "name": "誓言未竟",
+   "desc": "咽下事实，消化结果，积蓄力量。",
+   "img": "assets/cards/chr_0009_azrila_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "无边征程",
+   "desc": "征伐只是通向目标的过程，而战士不会在目标前方倒下。",
+   "img": "assets/cards/chr_0009_azrila_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "不落坚城",
+   "desc": "坚硬的血和炽热的钢在北地筑成堡垒。那里不是她的梦魇，那里仍是下一个终点。",
+   "img": "assets/cards/chr_0009_azrila_5.webp"
+  }
+ ],
+ "chr_0015_lifeng": [
+  {
+   "lvl": 1,
+   "name": "证果",
+   "desc": "他又来找你掰手腕了。有朝一日，他会成为你的臂膀。",
+   "img": "assets/cards/chr_0015_lifeng_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "寻道",
+   "desc": "修行路漫漫，但他目光如炬，奉你为楷模。",
+   "img": "assets/cards/chr_0015_lifeng_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "少年心",
+   "desc": "如璞玉，千琢而不晦。",
+   "img": "assets/cards/chr_0015_lifeng_5.webp"
+  }
+ ],
+ "chr_0025_ardelia": [
+  {
+   "lvl": 1,
+   "name": "游戏开始",
+   "desc": "“多利先生也邀请您了，我们一起加入游戏吧！”",
+   "img": "assets/cards/chr_0025_ardelia_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "无边遐思",
+   "desc": "躺在软绵绵的粉色云朵上，会胡思乱想些什么呢？千奇百怪的石头，不曾到过的地方，还是……",
+   "img": "assets/cards/chr_0025_ardelia_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "心愿",
+   "desc": "冰冷坚硬的岩石上开满了花朵，荒漠充满生机和暖意，悠扬的旋律在耳边哼唱……前辈，这不是梦，对吧？",
+   "img": "assets/cards/chr_0025_ardelia_5.webp"
+  }
+ ],
+ "chr_0026_lastrite": [
+  {
+   "lvl": 1,
+   "name": "含羞草",
+   "desc": "虽然很有趣，但还是别捉弄她了吧。",
+   "img": "assets/cards/chr_0026_lastrite_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "凝华",
+   "desc": "一片浩瀚土地依偎着她沉眠，千载漫漫寒冬静候着她差遣。不过，少女只想为它的安息献上一束花。",
+   "img": "assets/cards/chr_0026_lastrite_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "初绽霜花",
+   "desc": "她还有许多问题等待解答，她还有许多困难需要克服。即便如此，她也一定会完成你给的每一项任务，让更多人找回笑容。",
+   "img": "assets/cards/chr_0026_lastrite_5.webp"
+  }
+ ],
+ "chr_0029_pograni": [
+  {
+   "lvl": 1,
+   "name": "后翼易位",
+   "desc": "他总是能出现在需要他的地方。",
+   "img": "assets/cards/chr_0029_pograni_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "王与骑士",
+   "desc": "但他丝毫没有憎恨帝国。“皇帝”死亡的百余年后，他在身后立起了盾阵。",
+   "img": "assets/cards/chr_0029_pograni_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "将军",
+   "desc": "硝烟似散非散，千钧之躯落下生与死的棋子；剑锋倚地，支撑着铁誓，亦支撑着守望——此刻，将军。",
+   "img": "assets/cards/chr_0029_pograni_5.webp"
+  }
+ ],
+ "chr_0034_typhoea": [
+  {
+   "lvl": 1,
+   "name": "冬日暖阳",
+   "desc": "昨天林地中刚刚下过雪，气温很低，好在太阳不错，照在脸上，依然很温暖。",
+   "img": "assets/cards/chr_0034_typhoea_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "小猎手",
+   "desc": "那段关于荒原猎手的传说，你永远也听不到结尾，因为每讲到一半，猎手本人就打起哈欠，困意翻涌。",
+   "img": "assets/cards/chr_0034_typhoea_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "冰原深处的一瞥",
+   "desc": "她看向你，眼中深邃而平静，仿若萨米维格的冰原，远远回望向你。",
+   "img": "assets/cards/chr_0034_typhoea_5.webp"
+  }
+ ],
+ "chr_0036_jsspsi": [
+  {
+   "lvl": 1,
+   "name": "自在",
+   "desc": "随心随性，乐得逍遥。",
+   "img": "assets/cards/chr_0036_jsspsi_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "驻墨间",
+   "desc": "画境中，万物皆为笔墨。在很长一段时间中，只有你与她，孑然其间。",
+   "img": "assets/cards/chr_0036_jsspsi_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "不浊",
+   "desc": "潇洒人间，不染烟尘。",
+   "img": "assets/cards/chr_0036_jsspsi_5.webp"
+  }
+ ],
+ "chr_0004_pelica": [
+  {
+   "lvl": 1,
+   "name": "引领者",
+   "desc": "当群星的碎屑遮掩住光芒，她平静地照亮你的前路。她在闪耀。",
+   "img": "assets/cards/chr_0004_pelica_1.webp"
+  },
+  {
+   "lvl": 1,
+   "name": "启明",
+   "desc": "每一次深空中的漫步，都是对无垠星河的短暂拜访。",
+   "img": "assets/cards/chr_0004_pelica_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "协议",
+   "desc": "一种可见的思念让她不愿驻足，协议从不是冰冷的束缚。",
+   "img": "assets/cards/chr_0004_pelica_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "未来",
+   "desc": "蓝图上刻印了她所编织的无限可能，那是她随身携带的未来。",
+   "img": "assets/cards/chr_0004_pelica_5.webp"
+  }
+ ],
+ "chr_0005_chen": [
+  {
+   "lvl": 1,
+   "name": "侠迹",
+   "desc": "龙与剑，闯天涯。",
+   "img": "assets/cards/chr_0005_chen_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "剑语",
+   "desc": "剑是她对母亲的思念，剑是她选择的道路，剑是她守护你的信念。",
+   "img": "assets/cards/chr_0005_chen_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "龙腾",
+   "desc": "剑出，龙腾，风起，云涌。",
+   "img": "assets/cards/chr_0005_chen_5.webp"
+  }
+ ],
+ "chr_0006_wolfgd": [
+  {
+   "lvl": 1,
+   "name": "狩猎时间到",
+   "desc": "荒野上最优秀的猎手总会在最合适的时机现身。",
+   "img": "assets/cards/chr_0006_wolfgd_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "今日不设防",
+   "desc": "他只会在最信任的人面前放下防备，袒露那份弃置在童年的真实秉性。",
+   "img": "assets/cards/chr_0006_wolfgd_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "掠食者一瞥",
+   "desc": "于狼魂的嘶吼声中，年轻的掠食者踏足属于自己的猎场，他将紧盯每一只猎物，直至把它们猎于铳下。",
+   "img": "assets/cards/chr_0006_wolfgd_5.webp"
+  }
+ ],
+ "chr_0007_ikut": [
+  {
+   "lvl": 1,
+   "name": "向晚",
+   "desc": "当感官不再可靠，游人从歌谣中获得指引。",
+   "img": "assets/cards/chr_0007_ikut_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "不息",
+   "desc": "无论前方是怎样的风暴，都无法阻拦她前进的脚步。",
+   "img": "assets/cards/chr_0007_ikut_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "弧月旋刃",
+   "desc": "她始终认为自己只是一名徒从，但许多被她从裂地者刀下救出的人们，依旧会称呼她一声“师者”。",
+   "img": "assets/cards/chr_0007_ikut_5.webp"
+  }
+ ],
+ "chr_0011_seraph": [
+  {
+   "lvl": 1,
+   "name": "求知欲",
+   "desc": "她渴望探究与世间万物相关的所有知识，当然，也包括你的。",
+   "img": "assets/cards/chr_0011_seraph_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "虔诚",
+   "desc": "律法，符号，逻辑，演算，虔诚的修士沉溺其中。",
+   "img": "assets/cards/chr_0011_seraph_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "凝望真理",
+   "desc": "不要恐惧未知，不要拒绝混乱——这即是她探究真理的信条。",
+   "img": "assets/cards/chr_0011_seraph_5.webp"
+  }
+ ],
+ "chr_0012_avywen": [
+  {
+   "lvl": 1,
+   "name": "找到你咯",
+   "desc": "她一直独自旅行，直到遇见了你。",
+   "img": "assets/cards/chr_0012_avywen_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "在想我么？",
+   "desc": "她收集了许多人的思念与回忆，但很少和别人提起自己的那份。",
+   "img": "assets/cards/chr_0012_avywen_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "未知邀约",
+   "desc": "面对未知的旅程，信使毫不犹豫地向你发起邀约。",
+   "img": "assets/cards/chr_0012_avywen_5.webp"
+  }
+ ],
+ "chr_0014_aurora": [
+  {
+   "lvl": 1,
+   "name": "休整间隙",
+   "desc": "在翻越下一座山峰前，在下一个救援信号到来前，一杯耶尔什风味的热可可绝对是个不错的选择。",
+   "img": "assets/cards/chr_0014_aurora_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "晴雪天气",
+   "desc": "就像雪山顶峰最耀眼的那束阳光，她的身影总让身陷绝境的求援者们倍感温暖，帮他们跨越严寒，抵达生路。",
+   "img": "assets/cards/chr_0014_aurora_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "雪中滑翔",
+   "desc": "行走于雪山之间，滑翔于冰雪之上，少女始终疾驰在全力救助他人生命的路途中。",
+   "img": "assets/cards/chr_0014_aurora_5.webp"
+  }
+ ],
+ "chr_0018_dapan": [
+  {
+   "lvl": 1,
+   "name": "旅行伊始",
+   "desc": "轻装上阵，引擎轰鸣。他跟他的铁锅，准备出发。",
+   "img": "assets/cards/chr_0018_dapan_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "宴坐空山",
+   "desc": "何人无事，伴三五羽兽，宴坐空山。",
+   "img": "assets/cards/chr_0018_dapan_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "人间百味",
+   "desc": "生活不像做菜，能把料备全再下锅。但所见、所感，都能拿来做食材，翻炒出人间百味。",
+   "img": "assets/cards/chr_0018_dapan_5.webp"
+  }
+ ],
+ "chr_0024_deepfin": [
+  {
+   "lvl": 1,
+   "name": "钓友",
+   "desc": "阴而不冷的冬天，是下钩钓鳞的好天气，别错过了。",
+   "img": "assets/cards/chr_0024_deepfin_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "沉浮",
+   "desc": "生活让人遍体鳞伤，但失去的眼睛，反而能看清这底下深藏的秘密。",
+   "img": "assets/cards/chr_0024_deepfin_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "挥竿日",
+   "desc": "“钓鳞时哪一刻心情最好？”“挥竿。”“为什么？”“所有的期待都还在前方，未知让人心跳加速。”",
+   "img": "assets/cards/chr_0024_deepfin_5.webp"
+  }
+ ],
+ "chr_0019_karin": [
+  {
+   "lvl": 1,
+   "name": "前来报到",
+   "desc": "是理想，是期待，是奔腾的热忱——以笑容宣告，她前来报到。",
+   "img": "assets/cards/chr_0019_karin_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "年轻的理想",
+   "desc": "用行动照亮身边的人，再把这份光延伸到更远的地方。",
+   "img": "assets/cards/chr_0019_karin_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "明日新星",
+   "desc": "她微笑着，像破晓时的风，带着未曾言说的希望，蕴藏着静默的勇气。",
+   "img": "assets/cards/chr_0019_karin_5.webp"
+  }
+ ],
+ "chr_0020_meurs": [
+  {
+   "lvl": 1,
+   "name": "时刻坚守",
+   "desc": "无论何时，那道手执坚盾的湛蓝身影始终在那里。",
+   "img": "assets/cards/chr_0020_meurs_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "战前准备",
+   "desc": "在任务开始之前，他已经为后续的每种情况都准备了十种应急方案。",
+   "img": "assets/cards/chr_0020_meurs_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "坚实后盾",
+   "desc": "令人放心的安全感与让人满足的饱腹感——永远是他所在的队伍里最不会缺乏的东西。",
+   "img": "assets/cards/chr_0020_meurs_5.webp"
+  }
+ ],
+ "chr_0021_whiten": [
+  {
+   "lvl": 1,
+   "name": "间歇性思考者",
+   "desc": "尝试抽出一些时间，去思考那一滴露水何时会落地。",
+   "img": "assets/cards/chr_0021_whiten_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "分享欲",
+   "desc": "“要尝一下吗？嗯……这是用一些昆虫和植物的提取物混合而成的营养饮料。嗯……很奇妙的味道……”",
+   "img": "assets/cards/chr_0021_whiten_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "秘密时间",
+   "desc": "你介意与人分享忙里偷闲的时光吗？",
+   "img": "assets/cards/chr_0021_whiten_5.webp"
+  }
+ ],
+ "chr_0022_bounda": [
+  {
+   "lvl": 1,
+   "name": "小麻烦",
+   "desc": "别让萤石知道你在想什么……噢，也许已经晚了。",
+   "img": "assets/cards/chr_0022_bounda_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "行动派",
+   "desc": "她从来不记仇，她的仇家向来撑不了很久。",
+   "img": "assets/cards/chr_0022_bounda_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "规则边缘",
+   "desc": "正义从不缺席，但如果正义迟到，那可就有乐子看了。",
+   "img": "assets/cards/chr_0022_bounda_5.webp"
+  }
+ ],
+ "chr_0023_antal": [
+  {
+   "lvl": 1,
+   "name": "志趣",
+   "desc": "于他而言，源石技艺的奥秘是世间万物里最值得探寻一生的事物。",
+   "img": "assets/cards/chr_0023_antal_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "潜心",
+   "desc": "“别打扰他，他正在进行第一百一十五次用源石技艺将火焰压缩成尘埃的试验。”",
+   "img": "assets/cards/chr_0023_antal_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "造极",
+   "desc": "他学习，他领悟，他正在无尽的求索中迈向那唯一的解答。",
+   "img": "assets/cards/chr_0023_antal_5.webp"
+  }
+ ],
+ "chr_0035_liino": [
+  {
+   "lvl": 1,
+   "name": "开演日",
+   "desc": "在这一天，她将定义何为“闪耀”、何为“完美”、何为“终生难忘的光芒”。",
+   "img": "assets/cards/chr_0035_liino_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "晨星眺望之处",
+   "desc": "即便是“星星”自己，一样拥有一片不断仰望着、努力尝试靠近的星空。",
+   "img": "assets/cards/chr_0035_liino_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "笞心习作",
+   "desc": "“轻点声，现在可是献给大家的美梦时间。”",
+   "img": "assets/cards/chr_0035_liino_5.webp"
+  }
+ ],
+ "chr_0032_lizhiyan": [
+  {
+   "lvl": 1,
+   "name": "问蝶",
+   "desc": "往事易碎，往日如烟。",
+   "img": "assets/cards/chr_0032_lizhiyan_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "归枝",
+   "desc": "羽无栖木，无处归枝。",
+   "img": "assets/cards/chr_0032_lizhiyan_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "化剑",
+   "desc": "以身为剑，以念凝诀。",
+   "img": "assets/cards/chr_0032_lizhiyan_5.webp"
+  }
+ ],
+ "chr_0033_camille": [
+  {
+   "lvl": 1,
+   "name": "永恒回归",
+   "desc": "在无尽的循环上行进，直到分裂的终点再次汇合。",
+   "img": "assets/cards/chr_0033_camille_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "仰视开端",
+   "desc": "往事如一滴雨水，仰起头时，才不会自心底流出。",
+   "img": "assets/cards/chr_0033_camille_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "破影",
+   "desc": "他甩开缠绕在身上的阴影，就像一条荆棘挣扎着钻出土地。",
+   "img": "assets/cards/chr_0033_camille_5.webp"
+  }
+ ],
+ "chr_0031_mifu": [
+  {
+   "lvl": 1,
+   "name": "小酌",
+   "desc": "正因职责不可辜负，于是功能饮料就此替代了美酒。",
+   "img": "assets/cards/chr_0031_mifu_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "得闲",
+   "desc": "刚直的人也有松弛的一面，请不要同其他人说。",
+   "img": "assets/cards/chr_0031_mifu_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "开怀",
+   "desc": "今宵苦短，与君开怀。",
+   "img": "assets/cards/chr_0031_mifu_5.webp"
+  }
+ ],
+ "chr_0030_zhuangfy": [
+  {
+   "lvl": 1,
+   "name": "总相宜",
+   "desc": "闲时忙时，醒时梦时，不论何时，武陵都与她同频呼吸，同频作息。",
+   "img": "assets/cards/chr_0030_zhuangfy_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "雨停的瞬间",
+   "desc": "春雨不落，往日不熄。若是时间停在最初相遇的那一刻，又有多好。",
+   "img": "assets/cards/chr_0030_zhuangfy_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "大局已定",
+   "desc": "这一局，她要赢。",
+   "img": "assets/cards/chr_0030_zhuangfy_5.webp"
+  }
+ ],
+ "chr_0028_wulfa": [
+  {
+   "lvl": 1,
+   "name": "掌心的宝物",
+   "desc": "手中捧着的，是被呵护长大的果实。它把给养化作坚硬的外壳，和永不腐坏的心。",
+   "img": "assets/cards/chr_0028_wulfa_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "无限的未来",
+   "desc": "国王……勇者……电影明星！如果能选的话，我全都想当一回！嗯……想想而已。",
+   "img": "assets/cards/chr_0028_wulfa_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "笔尖的世界",
+   "desc": "画纸上记下了传说、故事，还有昨晚梦见的城堡与赶走灾厄的小狼。",
+   "img": "assets/cards/chr_0028_wulfa_5.webp"
+  }
+ ],
+ "chr_0027_tangtang": [
+  {
+   "lvl": 1,
+   "name": "白水鉴心",
+   "desc": "汤汤的心是水做的，如月下清波，空明流光。",
+   "img": "assets/cards/chr_0027_tangtang_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "折筠",
+   "desc": "嗅到竹子的清香时，她忽然想起一个寻常的午后，他们编着来年要穿的蓑衣，阳光落在身上。",
+   "img": "assets/cards/chr_0027_tangtang_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "当家令如山",
+   "desc": "“黑面煞，跟上你大当家！总有一天，我要带你一起去世界的尽头！”",
+   "img": "assets/cards/chr_0027_tangtang_5.webp"
+  }
+ ],
+ "chr_0017_yvonne": [
+  {
+   "lvl": 1,
+   "name": "潮流对谈",
+   "desc": "从繁忙的超域研究中抽身，休息一下，聊聊《MARTHE月刊》跟流光幻变指甲油吧？",
+   "img": "assets/cards/chr_0017_yvonne_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "自拍邀请",
+   "desc": "跟伊冯一起自拍可不需要什么闪光灯，毕竟她就是最耀眼的光源。",
+   "img": "assets/cards/chr_0017_yvonne_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "Win-Win!",
+   "desc": "亮丽的涂装、轻快的音乐，还有游戏获胜时的笑容……每个开心的时刻，她都记录了下来，与你共享。",
+   "img": "assets/cards/chr_0017_yvonne_5.webp"
+  }
+ ],
+ "chr_0013_aglina": [
+  {
+   "lvl": 1,
+   "name": "静候心音",
+   "desc": "少女等待着一个回应，就像在等着一封回信。",
+   "img": "assets/cards/chr_0013_aglina_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "云端驻足",
+   "desc": "她不再步履轻快，也不再行色匆匆。她看见一个熟悉的身影，她为此驻足。",
+   "img": "assets/cards/chr_0013_aglina_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "世界翻转",
+   "desc": "将视野倒转，你会发现不一样的景色、不一样的心情、不一样的自己。世界变成了崭新的。",
+   "img": "assets/cards/chr_0013_aglina_5.webp"
+  }
+ ],
+ "chr_0016_laevat": [
+  {
+   "lvl": 1,
+   "name": "火与剑",
+   "desc": "火焰吞没了她的过去，但一个许诺，让她决意为未来而挥剑。",
+   "img": "assets/cards/chr_0016_laevat_1.webp"
+  },
+  {
+   "lvl": 3,
+   "name": "1538°C",
+   "desc": "1538°C是铁的熔点，而不是她的。当你做好了准备，就靠近一点吧。",
+   "img": "assets/cards/chr_0016_laevat_3.webp"
+  },
+  {
+   "lvl": 5,
+   "name": "熔火之邀",
+   "desc": "陪她走进无忆的长夜，陪她焚尽黑暗的梦魇，陪她点燃映照前路的火焰。",
+   "img": "assets/cards/chr_0016_laevat_5.webp"
+  }
+ ]
+}
