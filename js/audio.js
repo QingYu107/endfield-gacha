@@ -1,6 +1,6 @@
 /* ==========================================================================
    终末地 · 寻访模拟器 — audio.js
-   自研合成音效（numpy 生成）+ 背景氛围循环 + 本地 TTS 语音
+   自研合成音效（numpy 生成）+ 背景氛围循环 + Wiki 官方中文配音
    ========================================================================== */
 (function (global) {
   'use strict';
@@ -27,6 +27,7 @@
     bgmVol: 0.34,
     pool: {},
     bgm: null,
+    voiceEl: null,
     ready: false,
     started: false,
 
@@ -76,6 +77,26 @@
       } catch (e) {}
     },
 
+    /** 干员真实语音（voice.fz.wiki 抓取，见 data/voices.js） */
+    playVoice(id, opt) {
+      if (!this.on || !this.voiceOn) return false;
+      const V = global.VOICES || {};
+      if (!V[id]) return false;
+      this.stopVoice();
+      const a = new Audio(BASE + 'voice/' + id + '.mp3');
+      a.volume = Math.min(1, 0.95 * ((opt && opt.vol) || 1));
+      this.voiceEl = a;
+      const p = a.play();
+      if (p && p.catch) p.catch(() => {});
+      return true;
+    },
+
+    stopVoice() {
+      if (!this.voiceEl) return;
+      try { this.voiceEl.pause(); this.voiceEl.currentTime = 0; } catch (e) {}
+      this.voiceEl = null;
+    },
+
     fadeBgm(to, ms) {
       if (!this.bgm) return;
       const from = this.bgm.volume;
@@ -115,6 +136,7 @@
     },
 
     stopSpeak() {
+      this.stopVoice();
       try { if ('speechSynthesis' in global) speechSynthesis.cancel(); } catch (e) {}
     }
   };
