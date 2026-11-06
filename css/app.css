@@ -2066,3 +2066,58 @@ html { overflow-x: hidden; }
   .pullstage .ps-again .b-k { font-size: 12.5px; white-space: nowrap; }
   .pullstage .ps-again .b-s { font-size: 9px; white-space: nowrap; }
 }
+
+/* ==========================================================================
+   mobile pass 2 — 手机端：武器机架 5×2、单抽/六星立绘上提
+   ========================================================================== */
+@media (max-width: 760px) {
+  /* 武器池：2 列会让 10 件排成 5 行、超出固定舞台被裁掉，改回 5×2 机架 */
+  .ps-cards.weapon {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 26px 6px !important;
+    padding: 74px 10px 108px !important;
+    align-content: center !important;
+    align-items: start !important;
+  }
+  .ps-cards.weapon .wt-frame { border-width: 1px; }
+  .ps-cards.weapon .wt-frame img { padding: 7% !important; }
+  .ps-cards.weapon .wt-meta { margin-top: 5px; gap: 1px; }
+  .ps-cards.weapon .wt-meta b { font-size: 8px !important; letter-spacing: 0 !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ps-cards.weapon .wt-meta span { display: none; }
+
+  /* 单抽 / 六星展示：立绘顶到上方，别再沉到半屏以下 */
+  .ps-solo .solo-art { align-items: flex-start !important; }
+  .ps-solo .solo-art img {
+    height: 58vh !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    object-fit: cover !important;
+    object-position: 50% 6% !important;
+    margin-top: 0 !important;
+  }
+  .ps-solo .solo-halo { top: 26% !important; width: 96vw !important; height: 96vw !important; }
+  .ps-solo::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 132px; z-index: 3; pointer-events: none;
+    background: linear-gradient(180deg, rgba(2,3,4,.92) 0%, rgba(2,3,4,.55) 46%, transparent 100%);
+  }
+  .ps-solo::after {
+    height: 62% !important;
+    background: linear-gradient(180deg, transparent 0%, rgba(4,5,6,.28) 26%, rgba(4,5,6,.86) 52%, #030405 76%) !important;
+  }
+  .ps-solo .solo-info { bottom: 138px !important; }
+  .ps-solo .solo-kicker { font-size: 9px !important; letter-spacing: .2em !important; }
+  .ps-solo .solo-line { max-width: 100% !important; overflow-wrap: anywhere; word-break: break-word; }
+  .ps-solo .ps-title, .ps-title {
+    color: rgba(255,255,255,.80) !important;
+    text-shadow: 0 1px 12px rgba(0,0,0,.95), 0 0 2px rgba(0,0,0,1);
+  }
+  .ps-ribbon { top: 50px !important; gap: 7px !important; padding: 5px 12px 5px 5px !important; }
+  .ps-ribbon b { font-size: 9px !important; padding: 3px 5px !important; color: #0d0b06 !important; }
+  .ps-ribbon span { font-size: 11.5px !important; letter-spacing: .06em !important; }
+  .ps-ribbon em { font-size: 7px !important; letter-spacing: .14em !important; }
+
+}
+@media (max-width: 420px) {
+  .ps-solo .solo-art img { height: 60vh !important; }
+  .ps-cards.weapon { gap: 12px 5px !important; }
+}
